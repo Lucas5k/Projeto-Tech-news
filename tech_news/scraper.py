@@ -1,5 +1,7 @@
 import requests
 import time
+from parsel import Selector
+
 
 headers = {"user-agent": "Fake user-agent"}
 
@@ -19,6 +21,11 @@ def fetch(url):
 # Requisito 2
 def scrape_novidades(html_content):
     """Seu código deve vir aqui"""
+    selector = Selector(text=html_content)
+    links = selector.css('div.cs-overlay a::attr(href)').getall()
+    if not links:
+        return []
+    return links
 
 
 # Requisito 3
