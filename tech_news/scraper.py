@@ -90,6 +90,5 @@ def get_tech_news(amount):
             dict_of_news = scrape_noticia(request_news)
             my_list_of_news.append(dict_of_news)
         url_trybe = scrape_next_page_link(request)
-        print(url_trybe)
     create_news(my_list_of_news[:amount])
     return my_list_of_news[:amount]
