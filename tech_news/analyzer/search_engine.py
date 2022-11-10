@@ -1,4 +1,5 @@
-from tech_news.database import search_news, find_news
+from tech_news.database import search_news
+import datetime
 
 
 # Requisito 6
@@ -18,6 +19,14 @@ def search_by_title(title):
 # Requisito 7
 def search_by_date(date):
     """Seu código deve vir aqui"""
+    try:
+        old = datetime.datetime.strptime(date, "%Y-%m-%d").strftime('%d-%m-%Y')
+        new_format = old.replace("-", "/")
+        my_date = search_news({"timestamp": new_format})
+        my_list_of_tuples = [(d["title"], d["url"]) for d in my_date]
+        return my_list_of_tuples
+    except ValueError:
+        raise ValueError("Data inválida")
 
 
 # Requisito 8
