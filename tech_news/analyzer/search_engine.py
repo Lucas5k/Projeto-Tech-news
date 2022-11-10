@@ -26,6 +26,9 @@ def search_by_date(date):
 # Requisito 8
 def search_by_tag(tag):
     """Seu código deve vir aqui"""
+    list_of_tags = search_news({"tags": {"$regex": tag, "$options": "i"}})
+    my_list_of_tuples = [(t["title"], t["url"]) for t in list_of_tags]
+    return my_list_of_tuples
 
 
 # Requisito 9
