@@ -73,14 +73,23 @@ def scrape_noticia(html_content):
 # Requisito 5
 def get_tech_news(amount):
     """Seu código deve vir aqui"""
-    url_trybe = 'https://blog.betrybe.com/'
+
+# pegar os links das primeiras N noticias do blog da trybe
+# fazer o scrap de cada noticia dos links que você pegou (req 4)
+# e retornar uma lista com todas as noticias no formato retornado pelo req 4
+
     my_list_of_news = []
+    url_trybe = "https://blog.betrybe.com/"
 
     while len(my_list_of_news) < amount:
-        response = fetch(url_trybe)
-        new_news = scrape_novidades(response)
+        request = fetch(url_trybe)
+        new_news = scrape_novidades(request)
 
         for new in new_news:
-            test = scrape_noticia(new)
-        print(test)
-        return my_list_of_news
+            request_news = fetch(new)
+            dict_of_news = scrape_noticia(request_news)
+            my_list_of_news.append(dict_of_news)
+        url_trybe = scrape_next_page_link(request)
+        print(url_trybe)
+    create_news(my_list_of_news[:amount])
+    return my_list_of_news[:amount]
