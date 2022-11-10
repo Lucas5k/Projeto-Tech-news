@@ -1,6 +1,7 @@
 import requests
 import time
 from parsel import Selector
+from tech_news.database import create_news
 
 
 headers = {"user-agent": "Fake user-agent"}
@@ -42,9 +43,9 @@ def scrape_noticia(html_content):
     selector = Selector(text=html_content)
 
     url = selector.css('link[rel=canonical]::attr(href)').get()
-    title = selector.css(
+    title = "".join(selector.css(
         'div.entry-header-inner h1.entry-title::text'
-    ).get().strip()
+    ).getall()).strip()
     timestamp = selector.css('div.entry-header-inner li.meta-date::text').get()
     writer = selector.css('div.entry-header-inner a.url::text').get()
     comments_count = len(
@@ -72,3 +73,14 @@ def scrape_noticia(html_content):
 # Requisito 5
 def get_tech_news(amount):
     """Seu código deve vir aqui"""
+    url_trybe = 'https://blog.betrybe.com/'
+    my_list_of_news = []
+
+    while len(my_list_of_news) < amount:
+        response = fetch(url_trybe)
+        new_news = scrape_novidades(response)
+
+        for new in new_news:
+            test = scrape_noticia(new)
+        print(test)
+        return my_list_of_news
