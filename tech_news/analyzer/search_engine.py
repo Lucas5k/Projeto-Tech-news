@@ -34,3 +34,9 @@ def search_by_tag(tag):
 # Requisito 9
 def search_by_category(category):
     """Seu código deve vir aqui"""
+    list_of_category = search_news(
+        {"category": {"$regex": category, "$options": "i"}}
+    )
+    my_list_of_tuples = [(t["title"], t["url"]) for t in list_of_category]
+    return my_list_of_tuples
+
