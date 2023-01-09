@@ -1,4 +1,4 @@
-# Projeto-Inventory-Report
+# Projeto-Tech-news
 
 ## :memo: Descrição
 <p> Esse foi meu terceiro projeto no módulo de ciência da computação. No mesmo desenvolvi um projeto que tem como principal objetivo fazer consultas em notícias sobre tecnologia. As notícias podem ser obtidas através da raspagem do blog da Trybe, ultilizei o python juntamente com o Requests, parsel e pytest para realizar os testes.</p>
