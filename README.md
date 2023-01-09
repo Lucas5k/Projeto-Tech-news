@@ -6,7 +6,7 @@
 ## :books: Funcionalidades
 <ol><b>Funcionalidade 1</b>: Realizar um Crawler para obter as noticias</ol>
 
-## <h3>:wrench:Tecnologias utilizadas</h3>
+## <h3>:wrench: Tecnologias utilizadas</h3>
 * Requests
 * Parsel
 * Python
