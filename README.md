@@ -4,7 +4,7 @@
 <p> Esse foi meu terceiro projeto no módulo de ciência da computação. No mesmo desenvolvi um projeto que tem como principal objetivo fazer consultas em notícias sobre tecnologia. As notícias podem ser obtidas através da raspagem do blog da Trybe, ultilizei o python juntamente com o Requests, parsel e pytest para realizar os testes.</p>
 
 ## :books: Funcionalidades
-<ol><b>Funcionalidade 1</b>: Realizar um Crawler para obter as noticias</ol>
+<ol><b>Funcionalidade 1</b>: Realizar um Crawler para obter as noticias sobre tecnologia</ol>
 
 ## <h3>:wrench: Tecnologias utilizadas</h3>
 * Requests
