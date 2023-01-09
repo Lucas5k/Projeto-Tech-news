@@ -23,7 +23,7 @@ def fetch(url):
 def scrape_novidades(html_content):
     """Seu código deve vir aqui"""
     selector = Selector(text=html_content)
-    links = selector.css('div.cs-overlay a::attr(href)').getall()
+    links = selector.css("div.cs-overlay a::attr(href)").getall()
     if not links:
         return []
     return links
@@ -42,21 +42,20 @@ def scrape_noticia(html_content):
     """Seu código deve vir aqui"""
     selector = Selector(text=html_content)
 
-    url = selector.css('link[rel=canonical]::attr(href)').get()
-    title = "".join(selector.css(
-        'div.entry-header-inner h1.entry-title::text'
-    ).getall()).strip()
-    timestamp = selector.css('div.entry-header-inner li.meta-date::text').get()
-    writer = selector.css('div.entry-header-inner a.url::text').get()
+    url = selector.css("link[rel=canonical]::attr(href)").get()
+    title = "".join(
+        selector.css("div.entry-header-inner h1.entry-title::text").getall()
+    ).strip()
+    timestamp = selector.css("div.entry-header-inner li.meta-date::text").get()
+    writer = selector.css("div.entry-header-inner a.url::text").get()
     comments_count = len(
-        selector.css('ol.comment-list div.comment-content::text').getall()
+        selector.css("ol.comment-list div.comment-content::text").getall()
     )
     summary = "".join(
-        selector.css(
-            'div.entry-content > p:nth-of-type(1) *::text'
-        ).getall()).strip()
-    tags = selector.css('section.post-tags a[rel=tag]::text').getall()
-    category = selector.css('div.meta-category span.label::text').get()
+        selector.css("div.entry-content > p:nth-of-type(1) *::text").getall()
+    ).strip()
+    tags = selector.css("section.post-tags a[rel=tag]::text").getall()
+    category = selector.css("div.meta-category span.label::text").get()
 
     return {
         "url": url,
@@ -66,7 +65,7 @@ def scrape_noticia(html_content):
         "comments_count": comments_count,
         "summary": summary,
         "tags": tags,
-        "category": category
+        "category": category,
     }
 
 
@@ -74,9 +73,9 @@ def scrape_noticia(html_content):
 def get_tech_news(amount):
     """Seu código deve vir aqui"""
 
-# pegar os links das primeiras N noticias do blog da trybe
-# fazer o scrap de cada noticia dos links que você pegou (req 4)
-# e retornar uma lista com todas as noticias no formato retornado pelo req 4
+    # pegar os links das primeiras N noticias do blog da trybe
+    # fazer o scrap de cada noticia dos links que você pegou (req 4)
+    # e retornar uma lista com todas as noticias no formato retornado pelo req 4
 
     my_list_of_news = []
     url_trybe = "https://blog.betrybe.com/"

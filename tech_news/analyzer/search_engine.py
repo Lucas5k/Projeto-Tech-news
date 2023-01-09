@@ -14,7 +14,7 @@ def search_by_title(title):
 def search_by_date(date):
     """Seu código deve vir aqui"""
     try:
-        old = datetime.datetime.strptime(date, "%Y-%m-%d").strftime('%d-%m-%Y')
+        old = datetime.datetime.strptime(date, "%Y-%m-%d").strftime("%d-%m-%Y")
         new_format = old.replace("-", "/")
         my_date = search_news({"timestamp": new_format})
         my_list_of_tuples = [(d["title"], d["url"]) for d in my_date]
@@ -39,4 +39,3 @@ def search_by_category(category):
     )
     my_list_of_tuples = [(t["title"], t["url"]) for t in list_of_category]
     return my_list_of_tuples
-
